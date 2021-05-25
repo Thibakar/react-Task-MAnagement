@@ -28,8 +28,6 @@ class LoginPage extends Component {
       email: null,
       password: null,
       formErrors: {
-        firstName: '',
-        lastName: '',
         email: '',
         password: ''
       }

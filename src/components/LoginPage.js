@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Redirect } from 'react-router';
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -33,6 +34,11 @@ class LoginPage extends Component {
       }
     };
   }
+  home = e => {
+    e.preventDefault();
+
+    window.location.href = '/SignUp';
+  };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -48,12 +54,6 @@ class LoginPage extends Component {
     } else {
       console.error('FORM INVALID - DISPLAY ERROR MESSAGE');
     }
-  };
-  home = e => {
-    e.preventDefault();
-    // - you can now access this.props.history for navigation
-    history.pushState('/SignUp', 'Sample Title');
-    alert('hi');
   };
 
   handleChange = e => {
@@ -80,6 +80,16 @@ class LoginPage extends Component {
 
   render() {
     const { formErrors } = this.state;
+    if (this.state.isLogin) {
+      return (
+        <Redirect
+          to={{
+            pathname: 'SignUp',
+            state: this.state.data
+          }}
+        />
+      );
+    }
 
     return (
       <div className="wrapper">

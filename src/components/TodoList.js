@@ -52,9 +52,9 @@ const TodoList = () => {
     return (
         <>     
             <div className = "header text-center">
-                <h3>Todo List</h3>
-                <button className = "btn btn-primary mt-2" onClick = {() => setModal(true)} >Create Task</button>
-                <button className = " m-l-50 btn btn-danger mt-2" type="Log Out" onClick={logout}>Log Out</button>
+                <h3>Task Management</h3>
+                <button className = " add-task-btn btn btn-primary mt-2" onClick = {() => setModal(true)} >Create Task</button>
+                <button className = " logout-btn m-l-50 btn btn-danger mt-2" type="Log Out" onClick={logout}>Log Out</button>
             </div>
             <div className = "task-container">
             {taskList && taskList.map((obj , index) => <Card taskObj = {obj} index = {index} deleteTask = {deleteTask} updateListArray = {updateListArray}/> )}

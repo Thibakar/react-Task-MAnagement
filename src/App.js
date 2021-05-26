@@ -16,6 +16,7 @@ function App() {
         <div>
           <Route exact path="/" component={LoginPage} />
           <Route path="/TodoList" component={TodoList} />
+          <Route path="/Login" component={LoginPage} />
         </div>
         </Router>
     </div>

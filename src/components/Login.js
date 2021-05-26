@@ -52,8 +52,6 @@ class LoginPage extends Component {
     }
   };
   home = () => {
-    // - you can now access this.props.history for navigation
-    // this.props.history.push("/home");
     window.location.href = '/TodoList';
     console.log('hi');
   };

@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import EditTask from '../modals/EditTask'
+import { Badge } from 'reactstrap';
 
 const Card = ({taskObj, index, deleteTask, updateListArray}) => {
     const [modal, setModal] = useState(false);
+    const [show,setShow]=useState(false)
+    console.log("final",taskObj)
 
     const colors = [
         {
@@ -38,21 +41,24 @@ const Card = ({taskObj, index, deleteTask, updateListArray}) => {
     const handleDelete = () => {
         deleteTask(index)
     }
-
+    
     return (
         <div class = "card-wrapper mr-5">
             <div class = "card-top" style={{"background-color": colors[index%5].primaryColor}}></div>
             <div class = "task-holder">
-                <span class = "card-header" style={{"background-color": colors[index%5].secondaryColor, "border-radius": "10px"}}>{taskObj.Name}</span>
-                <p className = "mt-3">{taskObj.Description}</p>
-
+                <span class = "card-header" style={{"background-color": colors[index%5].secondary, "border-radius": "5px"}}>{taskObj.Name}</span>
+                <div className = "mt-3"><span style={{"background-color": colors[index%5].secondary, "border-radius": "5px"}} >Description</span> : {taskObj.Description}</div>
+                <div className = "mt-3"><span style={{"background-color": colors[index%5].secondary, "border-radius": "5px"}}>Due Date </span>: {taskObj.DueDate}</div>
+                <div className = "mt-3">{ show? <Badge color="secondary">completed</Badge> : <Badge color="success">In Progress</Badge> }</div>
+                
                 <div style={{"position": "absolute", "right" : "20px", "bottom" : "20px"}}>
+                    <i class="fa fa-check mr-3"style={{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {()=>setShow(!show)}></i>
                     <i class = "far fa-edit mr-3" style={{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {() => setModal(true)}></i>
                     <i class="fas fa-trash-alt" style = {{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {handleDelete}></i>
                 </div>
         </div>
         <EditTask modal = {modal} toggle = {toggle} updateTask = {updateTask} taskObj = {taskObj}/>
-        </div>
+        </div>      
     );
 };
 

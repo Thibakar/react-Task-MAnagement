@@ -1,11 +1,14 @@
-import React from 'react';
-import LoginPage from './components/LoginPage';
-import './style.css';
+import './App.css';
+import TodoList from './components/TodoList'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'font-awesome/css/font-awesome.min.css'
 
-export default function App() {
+function App() {
   return (
-    <div>
-      <LoginPage />
+    <div className="App">
+      <TodoList />
     </div>
   );
 }
+
+export default App;

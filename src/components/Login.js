@@ -28,8 +28,6 @@ class LoginPage extends Component {
       email: null,
       password: null,
       formErrors: {
-        firstName: '',
-        lastName: '',
         email: '',
         password: ''
       }
@@ -42,8 +40,6 @@ class LoginPage extends Component {
     if (formValid(this.state)) {
       console.log(`
           --SUBMITTING--
-          First Name: ${this.state.firstName}
-          Last Name: ${this.state.lastName}
           Email: ${this.state.email}
           Password: ${this.state.password}
         `);

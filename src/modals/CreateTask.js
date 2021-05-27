@@ -27,7 +27,6 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
         taskObj["DueDate"] = dueDate
         save(taskObj)
         console.log(taskObj)
-
     }
 
     return (
